@@ -169,6 +169,77 @@
             transition: var(--transition);
         }
 
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 350px;
+            height: 100vh;
+            background: var(--black-light);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .mobile-menu.active { right: 0; }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-header .logo img { width: 40px; height: 40px; }
+
+        .mobile-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .mobile-close:hover { color: var(--gold); }
+
+        .mobile-menu-links { list-style: none; padding: 24px; flex: 1; }
+        .mobile-menu-links li { margin-bottom: 8px; }
+        .mobile-menu-links a {
+            display: block;
+            padding: 16px 0;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+        .mobile-menu-links a:hover { color: var(--gold); padding-left: 8px; }
+
+        .mobile-menu-cta { padding: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .mobile-menu-cta .btn { width: 100%; justify-content: center; }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+
         /* Page Hero */
         .page-hero {
             position: relative;
@@ -693,7 +764,7 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <a href="contact.html" class="btn btn-primary">Get Free Quote</a>
-                <button class="mobile-toggle" aria-label="Toggle menu">
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -701,6 +772,33 @@
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">
+                <img src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/217x217/filters:strip_exif()/filters:no_upscale()/filters:format(webp)/media/8e5d3d5a-8874-4eb4-9977-1f983b13dbcd.jpeg" alt="Ultra Marble Logo">
+                <div class="logo-text">
+                    <span>Ultra Marble</span>
+                    <span>Stone Restoration</span>
+                </div>
+            </a>
+            <button class="mobile-close" id="mobile-close" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+        </div>
+        <ul class="mobile-menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-cta">
+            <a href="contact.html" class="btn btn-primary">Get Free Quote</a>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
 
     <!-- Page Hero -->
     <section class="page-hero">
@@ -714,7 +812,7 @@
             </div>
         </div>
         <div class="hero-float">
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Marble restoration" class="hero-float-img">
+            <img src="images/services/kitchen-service.jpg" alt="Marble restoration" class="hero-float-img">
         </div>
     </section>
 
@@ -739,7 +837,7 @@
                 <div class="service-card">
                     <div class="service-card-inner">
                         <div class="service-card-image">
-                            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80" alt="Natural Stone Restoration">
+                            <img src="images/services/flooring-service.jpg" alt="Natural Stone Restoration">
                         </div>
                         <div class="service-card-content">
                             <span class="service-card-num">01</span>
@@ -762,7 +860,7 @@
                 <div class="service-card">
                     <div class="service-card-inner">
                         <div class="service-card-image">
-                            <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Shower Restoration">
+                            <img src="images/services/bathroom-service.jpg" alt="Shower Restoration">
                         </div>
                         <div class="service-card-content">
                             <span class="service-card-num">02</span>
@@ -785,7 +883,7 @@
                 <div class="service-card">
                     <div class="service-card-inner">
                         <div class="service-card-image">
-                            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80" alt="Grout Services">
+                            <img src="images/services/countertop-service.jpg" alt="Grout Services">
                         </div>
                         <div class="service-card-content">
                             <span class="service-card-num">03</span>
@@ -808,7 +906,7 @@
                 <div class="service-card">
                     <div class="service-card-inner">
                         <div class="service-card-image">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Natural Stone Repair">
+                            <img src="images/services/driveway-service.jpg" alt="Natural Stone Repair">
                         </div>
                         <div class="service-card-content">
                             <span class="service-card-num">04</span>
@@ -831,7 +929,7 @@
                 <div class="service-card">
                     <div class="service-card-inner">
                         <div class="service-card-image">
-                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Pool Deck Resurfacing">
+                            <img src="images/services/pool-service.jpg" alt="Pool Deck Resurfacing">
                         </div>
                         <div class="service-card-content">
                             <span class="service-card-num">05</span>
@@ -854,7 +952,7 @@
                 <div class="service-card">
                     <div class="service-card-inner">
                         <div class="service-card-image">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Sealing Services">
+                            <img src="images/services/medallion-service.jpg" alt="Sealing Services">
                         </div>
                         <div class="service-card-content">
                             <span class="service-card-num">06</span>
@@ -949,5 +1047,39 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileClose = document.getElementById('mobile-close');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            mobileOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        mobileToggle.addEventListener('click', openMobileMenu);
+        mobileClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    </script>
 </body>
 </html>

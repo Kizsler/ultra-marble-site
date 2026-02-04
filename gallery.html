@@ -168,6 +168,106 @@
             transition: var(--transition);
         }
 
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 350px;
+            height: 100vh;
+            background: var(--black-light);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-header .logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .mobile-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .mobile-close:hover {
+            color: var(--gold);
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            padding: 24px;
+            flex: 1;
+        }
+
+        .mobile-menu-links li {
+            margin-bottom: 8px;
+        }
+
+        .mobile-menu-links a {
+            display: block;
+            padding: 16px 0;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-links a:hover {
+            color: var(--gold);
+            padding-left: 8px;
+        }
+
+        .mobile-menu-cta {
+            padding: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-cta .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         /* Page Hero */
         .page-hero {
             position: relative;
@@ -549,6 +649,187 @@
             font-size: 0.85rem;
         }
 
+        /* Before & After Section */
+        .before-after-section {
+            padding: 80px 0;
+            background: var(--black-light);
+        }
+
+        .before-after-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .before-after-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .before-after-header h2 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .before-after-header p {
+            color: var(--gray-300);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .before-after-grid .ba-item:nth-child(3) {
+            grid-column: 1 / -1;
+            justify-self: center;
+            width: calc(50% - 16px);
+        }
+
+        .ba-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--black);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .ba-slider {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            cursor: ew-resize;
+        }
+
+        .ba-slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ba-slider .ba-after {
+            clip-path: inset(0 50% 0 0);
+        }
+
+        .ba-slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--gold);
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .ba-slider-handle::before,
+        .ba-slider-handle::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+        }
+
+        .ba-slider-handle::before {
+            top: 50%;
+            margin-top: -30px;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid var(--gold);
+        }
+
+        .ba-slider-handle::after {
+            top: 50%;
+            margin-top: 20px;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid var(--gold);
+        }
+
+        .ba-slider-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .ba-slider-circle svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--black);
+        }
+
+        .ba-labels {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .ba-label {
+            padding: 8px 16px;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .ba-label.before {
+            color: var(--gray-300);
+        }
+
+        .ba-label.after {
+            color: var(--gold);
+        }
+
+        .ba-info {
+            padding: 24px;
+        }
+
+        .ba-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .ba-info p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .before-after-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Lightbox */
         .lightbox {
             position: fixed;
@@ -707,7 +988,7 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <a href="contact.html" class="btn btn-primary">Get Free Quote</a>
-                <button class="mobile-toggle" aria-label="Toggle menu">
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -715,6 +996,33 @@
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo">
+                <img src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/217x217/filters:strip_exif()/filters:no_upscale()/filters:format(webp)/media/8e5d3d5a-8874-4eb4-9977-1f983b13dbcd.jpeg" alt="Ultra Marble Logo">
+                <div class="logo-text">
+                    <span>Ultra Marble</span>
+                    <span>Stone Restoration</span>
+                </div>
+            </a>
+            <button class="mobile-close" id="mobile-close" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+        </div>
+        <ul class="mobile-menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-cta">
+            <a href="contact.html" class="btn btn-primary">Get Free Quote</a>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
 
     <!-- Page Hero -->
     <section class="page-hero">
@@ -728,59 +1036,139 @@
         </div>
     </section>
 
+    <!-- Before & After Section -->
+    <section class="before-after-section">
+        <div class="container">
+            <div class="before-after-header">
+                <h2>Before & <em>After</em></h2>
+                <p>Drag the slider to see the dramatic transformations we achieve. Real results from real projects.</p>
+            </div>
+
+            <div class="before-after-grid">
+                <!-- Kitchen Transformation -->
+                <div class="ba-item">
+                    <div class="ba-slider" data-before="images/gallery/before-after/kitchen-before.jpg" data-after="images/gallery/before-after/kitchen-after.jpg">
+                        <img src="images/gallery/before-after/kitchen-before.jpg" alt="Kitchen before" class="ba-before">
+                        <img src="images/gallery/before-after/kitchen-after.jpg" alt="Kitchen after" class="ba-after">
+                        <div class="ba-labels">
+                            <span class="ba-label before">Before</span>
+                            <span class="ba-label after">After</span>
+                        </div>
+                        <div class="ba-slider-handle">
+                            <div class="ba-slider-circle">
+                                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ba-info">
+                        <h3>Kitchen Countertop Revival</h3>
+                        <p>Complete marble countertop restoration and polish</p>
+                    </div>
+                </div>
+
+                <!-- Entry Transformation -->
+                <div class="ba-item">
+                    <div class="ba-slider" data-before="images/gallery/before-after/entry-before.jpg" data-after="images/gallery/before-after/entry-after.jpg">
+                        <img src="images/gallery/before-after/entry-before.jpg" alt="Entry before" class="ba-before">
+                        <img src="images/gallery/before-after/entry-after.jpg" alt="Entry after" class="ba-after">
+                        <div class="ba-labels">
+                            <span class="ba-label before">Before</span>
+                            <span class="ba-label after">After</span>
+                        </div>
+                        <div class="ba-slider-handle">
+                            <div class="ba-slider-circle">
+                                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ba-info">
+                        <h3>Entry Foyer Transformation</h3>
+                        <p>Marble floor polishing and grout restoration</p>
+                    </div>
+                </div>
+
+                <!-- Flooring Transformation -->
+                <div class="ba-item">
+                    <div class="ba-slider" data-before="images/gallery/before-after/flooring2-after.jpg" data-after="images/gallery/before-after/flooring2-before.jpg">
+                        <img src="images/gallery/before-after/flooring2-after.jpg" alt="Flooring before" class="ba-before">
+                        <img src="images/gallery/before-after/flooring2-before.jpg" alt="Flooring after" class="ba-after">
+                        <div class="ba-labels">
+                            <span class="ba-label before">Before</span>
+                            <span class="ba-label after">After</span>
+                        </div>
+                        <div class="ba-slider-handle">
+                            <div class="ba-slider-circle">
+                                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ba-info">
+                        <h3>Hallway Restoration</h3>
+                        <p>Full floor restoration with diamond grinding</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Gallery -->
     <section class="gallery-section">
         <div class="container">
             <div class="gallery-filters">
                 <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="floors">Floors</button>
-                <button class="filter-btn" data-filter="showers">Showers</button>
-                <button class="filter-btn" data-filter="countertops">Countertops</button>
-                <button class="filter-btn" data-filter="outdoor">Outdoor</button>
+                <button class="filter-btn" data-filter="flooring">Flooring</button>
+                <button class="filter-btn" data-filter="bathroom">Bathroom</button>
+                <button class="filter-btn" data-filter="kitchen">Kitchen</button>
+                <button class="filter-btn" data-filter="pool">Pool & Outdoor</button>
+                <button class="filter-btn" data-filter="driveway">Driveway</button>
             </div>
 
             <div class="gallery-grid">
-                <div class="gallery-item wide" data-category="floors">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80" alt="Marble floor restoration">
+                <!-- Flooring - Wide Feature -->
+                <div class="gallery-item wide" data-category="flooring">
+                    <img src="images/gallery/flooring/image81.jpg" alt="Polished marble floor restoration">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Floor Restoration</span>
-                        <h3>Carrara Marble Revival</h3>
-                        <p>Complete restoration of 2,000 sq ft marble flooring</p>
+                        <h3>Marble Floor Polish</h3>
+                        <p>High-gloss finish restoration</p>
                     </div>
                     <div class="gallery-view-icon">
                         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="showers">
-                    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Shower restoration">
+                <!-- Bathroom -->
+                <div class="gallery-item" data-category="bathroom">
+                    <img src="images/gallery/bathroom/image71.jpg" alt="Luxury bathroom restoration">
                     <div class="gallery-overlay">
-                        <span class="gallery-overlay-tag">Shower</span>
-                        <h3>Master Bath Renewal</h3>
-                        <p>Travertine shower transformation</p>
+                        <span class="gallery-overlay-tag">Bathroom</span>
+                        <h3>Master Bath Revival</h3>
+                        <p>Complete bathroom stone restoration</p>
                     </div>
                     <div class="gallery-view-icon">
                         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                     </div>
                 </div>
 
-                <div class="gallery-item tall" data-category="floors">
-                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" alt="Entryway marble">
+                <!-- Entry/Medallion - Tall -->
+                <div class="gallery-item tall" data-category="flooring">
+                    <img src="images/gallery/medallion/image69.jpg" alt="Decorative floor medallion">
                     <div class="gallery-overlay">
-                        <span class="gallery-overlay-tag">Entryway</span>
-                        <h3>Grand Foyer Polish</h3>
-                        <p>High-gloss marble restoration</p>
+                        <span class="gallery-overlay-tag">Medallion</span>
+                        <h3>Custom Floor Medallion</h3>
+                        <p>Intricate design restoration</p>
                     </div>
                     <div class="gallery-view-icon">
                         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="countertops">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Kitchen countertop">
+                <!-- Kitchen -->
+                <div class="gallery-item" data-category="kitchen">
+                    <img src="images/gallery/kitchen/image109.jpg" alt="Marble kitchen island">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Kitchen</span>
-                        <h3>Granite Countertop</h3>
+                        <h3>Marble Island Countertop</h3>
                         <p>Surface polishing and sealing</p>
                     </div>
                     <div class="gallery-view-icon">
@@ -788,8 +1176,9 @@
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="outdoor">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Pool deck">
+                <!-- Pool -->
+                <div class="gallery-item" data-category="pool">
+                    <img src="images/gallery/pool/image102.jpg" alt="Pool deck travertine">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Pool Deck</span>
                         <h3>Travertine Pool Deck</h3>
@@ -800,36 +1189,195 @@
                     </div>
                 </div>
 
-                <div class="gallery-item wide" data-category="floors">
-                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80" alt="Living room marble">
+                <!-- Flooring - Wide -->
+                <div class="gallery-item wide" data-category="flooring">
+                    <img src="images/gallery/flooring/image45.jpg" alt="Commercial marble flooring">
                     <div class="gallery-overlay">
-                        <span class="gallery-overlay-tag">Living Space</span>
-                        <h3>Living Room Transformation</h3>
-                        <p>Honed finish on cream marble</p>
+                        <span class="gallery-overlay-tag">Commercial</span>
+                        <h3>Large Scale Floor Polish</h3>
+                        <p>Commercial marble restoration</p>
                     </div>
                     <div class="gallery-view-icon">
                         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="showers">
-                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80" alt="Bathroom tiles">
+                <!-- Bathroom 2 -->
+                <div class="gallery-item" data-category="bathroom">
+                    <img src="images/gallery/bathroom/image80.jpg" alt="Bathroom shower restoration">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Bathroom</span>
-                        <h3>Grout Restoration</h3>
-                        <p>Color sealing and repair</p>
+                        <h3>Shower Stone Work</h3>
+                        <p>Shower tile and grout restoration</p>
                     </div>
                     <div class="gallery-view-icon">
                         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="countertops">
-                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80" alt="Bathroom vanity">
+                <!-- Driveway -->
+                <div class="gallery-item" data-category="driveway">
+                    <img src="images/gallery/driveway/image103.jpg" alt="Paver driveway">
                     <div class="gallery-overlay">
-                        <span class="gallery-overlay-tag">Vanity</span>
-                        <h3>Marble Vanity Top</h3>
-                        <p>Stain removal and polish</p>
+                        <span class="gallery-overlay-tag">Driveway</span>
+                        <h3>Paver Driveway</h3>
+                        <p>Driveway paver installation</p>
+                    </div>
+                    <div class="gallery-view-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Flooring -->
+                <div class="gallery-item" data-category="flooring">
+                    <img src="images/gallery/flooring/image84.jpg" alt="Herringbone marble floor">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-tag">Flooring</span>
+                        <h3>Herringbone Pattern</h3>
+                        <p>Elegant pattern restoration</p>
+                    </div>
+                    <div class="gallery-view-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Pool 2 -->
+                <div class="gallery-item" data-category="pool">
+                    <img src="images/gallery/pool/image27.jpg" alt="Pool area stone">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-tag">Pool</span>
+                        <h3>Pool Area Restoration</h3>
+                        <p>Complete pool surround work</p>
+                    </div>
+                    <div class="gallery-view-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Kitchen 2 - Wide -->
+                <div class="gallery-item wide" data-category="kitchen">
+                    <img src="images/gallery/kitchen/image48.jpg" alt="Kitchen countertop">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-tag">Kitchen</span>
+                        <h3>Kitchen Countertops</h3>
+                        <p>Full kitchen stone restoration</p>
+                    </div>
+                    <div class="gallery-view-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Flooring -->
+                <div class="gallery-item" data-category="flooring">
+                    <img src="images/gallery/flooring/image50.jpg" alt="Travertine flooring">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-tag">Flooring</span>
+                        <h3>Travertine Polish</h3>
+                        <p>Natural stone floor restoration</p>
+                    </div>
+                    <div class="gallery-view-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Entry -->
+                <div class="gallery-item" data-category="flooring">
+                    <img src="images/gallery/entry/image95.jpg" alt="Entry foyer marble">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-tag">Entry</span>
+                        <h3>Grand Foyer</h3>
+                        <p>Entryway marble restoration</p>
+                    </div>
+                    <div class="gallery-view-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Pool/Patio -->
+                <div class="gallery-item" data-category="pool">
+                    <img src="images/gallery/pool/image54.jpg" alt="Patio stone work">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-tag">Patio</span>
+                        <h3>Outdoor Living Space</h3>
+                        <p>Patio stone restoration</p>
+                    </div>
+                    <div class="gallery-view-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Bathroom 3 -->
+                <div class="gallery-item" data-category="bathroom">
+                    <img src="images/gallery/bathroom/image89.jpg" alt="Bathroom vanity">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-tag">Bathroom</span>
+                        <h3>Vanity Restoration</h3>
+                        <p>Marble vanity top polish</p>
+                    </div>
+                    <div class="gallery-view-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Flooring Wide -->
+                <div class="gallery-item wide" data-category="flooring">
+                    <img src="images/gallery/flooring/image30.jpg" alt="Living room marble floor">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-tag">Living Room</span>
+                        <h3>Residential Floor Polish</h3>
+                        <p>Complete living space restoration</p>
+                    </div>
+                    <div class="gallery-view-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Kitchen 3 -->
+                <div class="gallery-item" data-category="kitchen">
+                    <img src="images/gallery/kitchen/image70.jpg" alt="Kitchen stone work">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-tag">Kitchen</span>
+                        <h3>Kitchen Stone Care</h3>
+                        <p>Professional countertop restoration</p>
+                    </div>
+                    <div class="gallery-view-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Driveway 2 -->
+                <div class="gallery-item" data-category="driveway">
+                    <img src="images/gallery/driveway/image72.jpg" alt="Driveway pavers">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-tag">Driveway</span>
+                        <h3>Paver Installation</h3>
+                        <p>Professional paver work</p>
+                    </div>
+                    <div class="gallery-view-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Pool View -->
+                <div class="gallery-item" data-category="pool">
+                    <img src="images/gallery/pool/image67.jpg" alt="Pool view interior">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-tag">Pool View</span>
+                        <h3>Interior Pool View</h3>
+                        <p>Indoor-outdoor stone transition</p>
+                    </div>
+                    <div class="gallery-view-icon">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Countertop -->
+                <div class="gallery-item" data-category="kitchen">
+                    <img src="images/gallery/countertop/image18.jpg" alt="Marble countertop">
+                    <div class="gallery-overlay">
+                        <span class="gallery-overlay-tag">Countertop</span>
+                        <h3>Marble Countertop</h3>
+                        <p>Premium surface restoration</p>
                     </div>
                     <div class="gallery-view-icon">
                         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
@@ -987,6 +1535,86 @@
             if (e.key === 'Escape') {
                 lightbox.classList.remove('active');
             }
+        });
+
+        // Mobile menu functionality
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileClose = document.getElementById('mobile-close');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            mobileOverlay.classList.add('active');
+            mobileToggle.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            mobileToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        mobileToggle.addEventListener('click', openMobileMenu);
+        mobileClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Before/After slider functionality
+        document.querySelectorAll('.ba-slider').forEach(slider => {
+            const handle = slider.querySelector('.ba-slider-handle');
+            const afterImg = slider.querySelector('.ba-after');
+            let isDragging = false;
+
+            function updateSlider(x) {
+                const rect = slider.getBoundingClientRect();
+                let percentage = ((x - rect.left) / rect.width) * 100;
+                percentage = Math.max(0, Math.min(100, percentage));
+
+                handle.style.left = percentage + '%';
+                afterImg.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+            }
+
+            slider.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                updateSlider(e.clientX);
+            });
+
+            slider.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                updateSlider(e.touches[0].clientX);
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    updateSlider(e.clientX);
+                }
+            });
+
+            document.addEventListener('touchmove', (e) => {
+                if (isDragging) {
+                    updateSlider(e.touches[0].clientX);
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            document.addEventListener('touchend', () => {
+                isDragging = false;
+            });
         });
     </script>
 </body>
