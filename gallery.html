@@ -409,10 +409,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease, filter 0.4s ease;
+            transition: opacity 1s ease, transform 0.6s ease, filter 0.4s ease;
+            opacity: 0;
         }
 
-        .gallery-item:hover img {
+        .gallery-item img.active {
+            opacity: 1;
+        }
+
+        .gallery-item:hover img.active {
             transform: scale(1.08);
         }
 
@@ -1142,7 +1147,9 @@
             <div class="gallery-grid">
                 <!-- Flooring - Wide Feature -->
                 <div class="gallery-item wide" data-category="flooring">
-                    <img src="images/gallery/flooring/image81.jpg" alt="Polished marble floor restoration">
+                    <img src="images/gallery/flooring/image81.jpg" alt="Polished marble floor restoration" class="active">
+                    <img src="images/gallery/flooring/image1.jpg" alt="Polished marble floor restoration">
+                    <img src="images/gallery/flooring/image96.jpg" alt="Polished marble floor restoration">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Floor Restoration</span>
                         <h3>Marble Floor Polish</h3>
@@ -1155,7 +1162,9 @@
 
                 <!-- Bathroom -->
                 <div class="gallery-item" data-category="bathroom">
-                    <img src="images/gallery/bathroom/image71.jpg" alt="Luxury bathroom restoration">
+                    <img src="images/gallery/bathroom/image71.jpg" alt="Luxury bathroom restoration" class="active">
+                    <img src="images/gallery/bathroom/image74.jpg" alt="Luxury bathroom restoration">
+                    <img src="images/gallery/bathroom/image91.jpg" alt="Luxury bathroom restoration">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Bathroom</span>
                         <h3>Master Bath Revival</h3>
@@ -1168,7 +1177,9 @@
 
                 <!-- Entry/Medallion - Tall -->
                 <div class="gallery-item tall" data-category="flooring">
-                    <img src="images/gallery/medallion/image69.jpg" alt="Decorative floor medallion">
+                    <img src="images/gallery/medallion/image69.jpg" alt="Decorative floor medallion" class="active">
+                    <img src="images/gallery/flooring/image25.jpg" alt="Decorative floor medallion">
+                    <img src="images/gallery/flooring/image50.jpg" alt="Decorative floor medallion">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Medallion</span>
                         <h3>Custom Floor Medallion</h3>
@@ -1181,7 +1192,9 @@
 
                 <!-- Kitchen -->
                 <div class="gallery-item" data-category="kitchen">
-                    <img src="images/gallery/kitchen/image109.jpg" alt="Marble kitchen island">
+                    <img src="images/gallery/kitchen/image109.jpg" alt="Marble kitchen island" class="active">
+                    <img src="images/gallery/kitchen/image14.jpg" alt="Marble kitchen island">
+                    <img src="images/gallery/kitchen/image64.jpg" alt="Marble kitchen island">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Kitchen</span>
                         <h3>Marble Island Countertop</h3>
@@ -1194,7 +1207,9 @@
 
                 <!-- Pool -->
                 <div class="gallery-item" data-category="pool">
-                    <img src="images/gallery/pool/image102.jpg" alt="Pool deck travertine">
+                    <img src="images/gallery/pool/image102.jpg" alt="Pool deck travertine" class="active">
+                    <img src="images/gallery/pool/image26.jpg" alt="Pool deck travertine">
+                    <img src="images/gallery/pool/image43.jpg" alt="Pool deck travertine">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Pool Deck</span>
                         <h3>Travertine Pool Deck</h3>
@@ -1207,7 +1222,9 @@
 
                 <!-- Flooring - Wide -->
                 <div class="gallery-item wide" data-category="flooring">
-                    <img src="images/gallery/flooring/image45.jpg" alt="Commercial marble flooring">
+                    <img src="images/gallery/flooring/image45.jpg" alt="Commercial marble flooring" class="active">
+                    <img src="images/gallery/flooring/image58.jpg" alt="Commercial marble flooring">
+                    <img src="images/gallery/flooring/image92.jpg" alt="Commercial marble flooring">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Commercial</span>
                         <h3>Large Scale Floor Polish</h3>
@@ -1220,7 +1237,8 @@
 
                 <!-- Bathroom 2 -->
                 <div class="gallery-item" data-category="bathroom">
-                    <img src="images/gallery/bathroom/image80.jpg" alt="Bathroom shower restoration">
+                    <img src="images/gallery/bathroom/image80.jpg" alt="Bathroom shower restoration" class="active">
+                    <img src="images/gallery/bathroom/image89.jpg" alt="Bathroom shower restoration">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Bathroom</span>
                         <h3>Shower Stone Work</h3>
@@ -1233,7 +1251,9 @@
 
                 <!-- Driveway -->
                 <div class="gallery-item" data-category="driveway">
-                    <img src="images/gallery/driveway/image103.jpg" alt="Paver driveway">
+                    <img src="images/gallery/driveway/image103.jpg" alt="Paver driveway" class="active">
+                    <img src="images/gallery/driveway/image55.jpg" alt="Paver driveway">
+                    <img src="images/gallery/driveway/image72.jpg" alt="Paver driveway">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Driveway</span>
                         <h3>Paver Driveway</h3>
@@ -1246,7 +1266,9 @@
 
                 <!-- Flooring -->
                 <div class="gallery-item" data-category="flooring">
-                    <img src="images/gallery/flooring/image84.jpg" alt="Herringbone marble floor">
+                    <img src="images/gallery/flooring/image84.jpg" alt="Herringbone marble floor" class="active">
+                    <img src="images/gallery/flooring/image35.jpg" alt="Herringbone marble floor">
+                    <img src="images/gallery/flooring/image73.jpg" alt="Herringbone marble floor">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Flooring</span>
                         <h3>Herringbone Pattern</h3>
@@ -1259,7 +1281,9 @@
 
                 <!-- Pool 2 -->
                 <div class="gallery-item" data-category="pool">
-                    <img src="images/gallery/pool/image27.jpg" alt="Pool area stone">
+                    <img src="images/gallery/pool/image27.jpg" alt="Pool area stone" class="active">
+                    <img src="images/gallery/pool/image54.jpg" alt="Pool area stone">
+                    <img src="images/gallery/pool/image87.jpg" alt="Pool area stone">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Pool</span>
                         <h3>Pool Area Restoration</h3>
@@ -1272,7 +1296,9 @@
 
                 <!-- Kitchen 2 - Wide -->
                 <div class="gallery-item wide" data-category="kitchen">
-                    <img src="images/gallery/kitchen/image48.jpg" alt="Kitchen countertop">
+                    <img src="images/gallery/kitchen/image48.jpg" alt="Kitchen countertop" class="active">
+                    <img src="images/gallery/kitchen/image47.jpg" alt="Kitchen countertop">
+                    <img src="images/gallery/kitchen/image94.jpg" alt="Kitchen countertop">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Kitchen</span>
                         <h3>Kitchen Countertops</h3>
@@ -1285,7 +1311,9 @@
 
                 <!-- Flooring -->
                 <div class="gallery-item" data-category="flooring">
-                    <img src="images/gallery/flooring/image50.jpg" alt="Travertine flooring">
+                    <img src="images/gallery/flooring/image50.jpg" alt="Travertine flooring" class="active">
+                    <img src="images/gallery/flooring/image40.jpg" alt="Travertine flooring">
+                    <img src="images/gallery/flooring/image60.jpg" alt="Travertine flooring">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Flooring</span>
                         <h3>Travertine Polish</h3>
@@ -1298,7 +1326,8 @@
 
                 <!-- Entry -->
                 <div class="gallery-item" data-category="flooring">
-                    <img src="images/gallery/entry/image95.jpg" alt="Entry foyer marble">
+                    <img src="images/gallery/entry/image95.jpg" alt="Entry foyer marble" class="active">
+                    <img src="images/gallery/flooring/image100.jpg" alt="Entry foyer marble">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Entry</span>
                         <h3>Grand Foyer</h3>
@@ -1311,7 +1340,8 @@
 
                 <!-- Pool/Patio -->
                 <div class="gallery-item" data-category="pool">
-                    <img src="images/gallery/pool/image54.jpg" alt="Patio stone work">
+                    <img src="images/gallery/pool/image54.jpg" alt="Patio stone work" class="active">
+                    <img src="images/gallery/pool/image46.jpg" alt="Patio stone work">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Patio</span>
                         <h3>Outdoor Living Space</h3>
@@ -1324,7 +1354,8 @@
 
                 <!-- Bathroom 3 -->
                 <div class="gallery-item" data-category="bathroom">
-                    <img src="images/gallery/bathroom/image89.jpg" alt="Bathroom vanity">
+                    <img src="images/gallery/bathroom/image89.jpg" alt="Bathroom vanity" class="active">
+                    <img src="images/gallery/bathroom/image80.jpg" alt="Bathroom vanity">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Bathroom</span>
                         <h3>Vanity Restoration</h3>
@@ -1337,7 +1368,9 @@
 
                 <!-- Flooring Wide -->
                 <div class="gallery-item wide" data-category="flooring">
-                    <img src="images/gallery/flooring/image30.jpg" alt="Living room marble floor">
+                    <img src="images/gallery/flooring/image30.jpg" alt="Living room marble floor" class="active">
+                    <img src="images/gallery/flooring/image37.jpg" alt="Living room marble floor">
+                    <img src="images/gallery/flooring/image68.jpg" alt="Living room marble floor">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Living Room</span>
                         <h3>Residential Floor Polish</h3>
@@ -1350,7 +1383,8 @@
 
                 <!-- Kitchen 3 -->
                 <div class="gallery-item" data-category="kitchen">
-                    <img src="images/gallery/kitchen/image70.jpg" alt="Kitchen stone work">
+                    <img src="images/gallery/kitchen/image70.jpg" alt="Kitchen stone work" class="active">
+                    <img src="images/gallery/kitchen/image33.jpg" alt="Kitchen stone work">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Kitchen</span>
                         <h3>Kitchen Stone Care</h3>
@@ -1363,7 +1397,8 @@
 
                 <!-- Driveway 2 -->
                 <div class="gallery-item" data-category="driveway">
-                    <img src="images/gallery/driveway/image72.jpg" alt="Driveway pavers">
+                    <img src="images/gallery/driveway/image72.jpg" alt="Driveway pavers" class="active">
+                    <img src="images/gallery/driveway/image55.jpg" alt="Driveway pavers">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Driveway</span>
                         <h3>Paver Installation</h3>
@@ -1376,7 +1411,8 @@
 
                 <!-- Pool View -->
                 <div class="gallery-item" data-category="pool">
-                    <img src="images/gallery/pool/image67.jpg" alt="Pool view interior">
+                    <img src="images/gallery/pool/image67.jpg" alt="Pool view interior" class="active">
+                    <img src="images/gallery/pool/image32.jpg" alt="Pool view interior">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Pool View</span>
                         <h3>Interior Pool View</h3>
@@ -1389,7 +1425,8 @@
 
                 <!-- Countertop -->
                 <div class="gallery-item" data-category="kitchen">
-                    <img src="images/gallery/countertop/image18.jpg" alt="Marble countertop">
+                    <img src="images/gallery/countertop/image18.jpg" alt="Marble countertop" class="active">
+                    <img src="images/gallery/kitchen/image21.jpg" alt="Marble countertop">
                     <div class="gallery-overlay">
                         <span class="gallery-overlay-tag">Countertop</span>
                         <h3>Marble Countertop</h3>
@@ -1632,6 +1669,25 @@
                 isDragging = false;
             });
         });
+
+        // Gallery auto-carousel with fade
+        (function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach((item, index) => {
+                const images = item.querySelectorAll('img');
+                if (images.length <= 1) return;
+                let current = 0;
+                const interval = 5000;
+                const stagger = index * 800;
+                setTimeout(() => {
+                    setInterval(() => {
+                        images[current].classList.remove('active');
+                        current = (current + 1) % images.length;
+                        images[current].classList.add('active');
+                    }, interval);
+                }, stagger);
+            });
+        })();
     </script>
 </body>
 </html>

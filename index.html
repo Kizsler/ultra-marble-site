@@ -672,10 +672,17 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: opacity 1s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: absolute;
+            inset: 0;
+            opacity: 0;
         }
 
-        .gallery-item:hover img {
+        .gallery-item img.active {
+            opacity: 1;
+        }
+
+        .gallery-item:hover img.active {
             transform: scale(1.1);
         }
 
@@ -1052,10 +1059,14 @@
                 display: flex;
             }
 
+            .hero-diagonal {
+                display: none;
+            }
+
             .hero-image-container {
                 width: 100%;
                 clip-path: none;
-                opacity: 0.3;
+                opacity: 0.65;
             }
 
             .hero-content {
@@ -1475,12 +1486,12 @@
                 </div>
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="images/services/driveway-service.jpg" alt="Etch, Scratch & Wear Removal">
+                        <img src="images/services/driveway-service.jpg" alt="Paver Sealing">
                         <div class="service-image-overlay"></div>
                     </div>
                     <div class="service-content">
-                        <h3>Etch, Scratch & Wear Removal</h3>
-                        <p>Acid etching, surface scratches, and general wear are carefully corrected using proven restoration techniques. Rather than concealing imperfections, we properly resurface the stone to restore balance, uniformity, and clarity. This service is ideal for high-traffic areas and surfaces requiring precise correction.</p>
+                        <h3>Paver Sealing</h3>
+                        <p>Professional paver sealing services to protect and enhance the appearance of driveways, walkways, patios, and pool decks. Our high-quality sealers guard against fading, staining, weed growth, and erosion while bringing out the natural color and beauty of your pavers.</p>
                         <a href="#contact" class="service-link">
                             Learn More
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg>
@@ -1568,31 +1579,49 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="images/gallery/flooring/image81.jpg" alt="Marble floor restoration project">
+                    <img src="images/gallery/flooring/image81.jpg" alt="Marble floor restoration" class="active">
+                    <img src="images/gallery/flooring/image1.jpg" alt="Marble floor restoration">
+                    <img src="images/gallery/flooring/image50.jpg" alt="Marble floor restoration">
+                    <img src="images/gallery/flooring/image96.jpg" alt="Marble floor restoration">
+                    <img src="images/gallery/flooring/image25.jpg" alt="Marble floor restoration">
                     <div class="gallery-overlay">
                         <span>Marble Floor Restoration</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/gallery/kitchen/image109.jpg" alt="Kitchen countertop polishing">
+                    <img src="images/gallery/kitchen/image109.jpg" alt="Kitchen countertop polishing" class="active">
+                    <img src="images/gallery/kitchen/image14.jpg" alt="Kitchen countertop polishing">
+                    <img src="images/gallery/kitchen/image47.jpg" alt="Kitchen countertop polishing">
+                    <img src="images/gallery/kitchen/image64.jpg" alt="Kitchen countertop polishing">
+                    <img src="images/gallery/kitchen/image94.jpg" alt="Kitchen countertop polishing">
                     <div class="gallery-overlay">
                         <span>Countertop Polishing</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/gallery/bathroom/image71.jpg" alt="Bathroom restoration">
+                    <img src="images/gallery/bathroom/image71.jpg" alt="Bathroom restoration" class="active">
+                    <img src="images/gallery/bathroom/image74.jpg" alt="Bathroom restoration">
+                    <img src="images/gallery/bathroom/image80.jpg" alt="Bathroom restoration">
+                    <img src="images/gallery/bathroom/image89.jpg" alt="Bathroom restoration">
+                    <img src="images/gallery/bathroom/image91.jpg" alt="Bathroom restoration">
                     <div class="gallery-overlay">
                         <span>Bathroom Restoration</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/gallery/pool/image102.jpg" alt="Pool deck restoration">
+                    <img src="images/gallery/pool/image102.jpg" alt="Pool deck restoration" class="active">
+                    <img src="images/gallery/pool/image26.jpg" alt="Pool deck restoration">
+                    <img src="images/gallery/pool/image43.jpg" alt="Pool deck restoration">
+                    <img src="images/gallery/pool/image54.jpg" alt="Pool deck restoration">
+                    <img src="images/gallery/pool/image87.jpg" alt="Pool deck restoration">
                     <div class="gallery-overlay">
                         <span>Pool Deck Restoration</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/gallery/driveway/image103.jpg" alt="Driveway restoration">
+                    <img src="images/gallery/driveway/image103.jpg" alt="Driveway restoration" class="active">
+                    <img src="images/gallery/driveway/image55.jpg" alt="Driveway restoration">
+                    <img src="images/gallery/driveway/image72.jpg" alt="Driveway restoration">
                     <div class="gallery-overlay">
                         <span>Driveway Project</span>
                     </div>
@@ -1818,7 +1847,7 @@
                     <h4>Services</h4>
                     <ul class="footer-links">
                         <li><a href="services.html">Natural Stone Restoration</a></li>
-                        <li><a href="services.html">Etch, Scratch & Wear Removal</a></li>
+                        <li><a href="services.html">Paver Sealing</a></li>
                         <li><a href="services.html">Stone Sealing & Protection</a></li>
                         <li><a href="services.html">Shower Restoration</a></li>
                         <li><a href="services.html">Grout Care</a></li>
@@ -1932,6 +1961,26 @@
                 closeMobileMenu();
             }
         });
+
+        // Gallery auto-carousel with fade
+        (function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach((item, index) => {
+                const images = item.querySelectorAll('img');
+                if (images.length <= 1) return;
+                let current = 0;
+                // Stagger start times so they don't all switch at once
+                const interval = 5000;
+                const stagger = index * 800;
+                setTimeout(() => {
+                    setInterval(() => {
+                        images[current].classList.remove('active');
+                        current = (current + 1) % images.length;
+                        images[current].classList.add('active');
+                    }, interval);
+                }, stagger);
+            });
+        })();
     </script>
 </body>
 </html>
