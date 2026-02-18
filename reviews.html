@@ -914,7 +914,16 @@
                         </div>
                         <div class="rating-source-text">
                             <strong>Google Reviews</strong>
-                            Based on 50+ reviews
+                            5.0 stars
+                        </div>
+                    </div>
+                    <div class="rating-source">
+                        <div class="rating-source-icon">
+                            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </div>
+                        <div class="rating-source-text">
+                            <strong>Facebook Reviews</strong>
+                            5.0 stars
                         </div>
                     </div>
                 </div>
@@ -925,134 +934,11 @@
     <!-- Reviews -->
     <section class="reviews-section">
         <div class="container">
-            <!-- Featured Review -->
-            <div class="featured-review">
-                <div class="featured-review-content">
-                    <span class="featured-tag">Featured Review</span>
-                    <blockquote>"Pedro and his team were amazing! They left my floors looking like new! When they were done the team put all my furniture back, nothing was broken, very honest and trustworthy! Extremely professional."</blockquote>
-                    <div class="featured-author">
-                        <div class="featured-avatar">LH</div>
-                        <div class="featured-info">
-                            <h4>Lourdes Humble</h4>
-                            <span>
-                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                Google Review
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Featured Review (loaded from reviews.json) -->
+            <div class="featured-review" id="featured-review"></div>
 
-            <!-- Reviews Grid -->
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <p class="review-text">"They came on time and left when they said. Our kitchen marble restoration was done to perfection and now we will have them do all our floors. Shines like glass!"</p>
-                    <div class="review-author">
-                        <div class="review-avatar">TT</div>
-                        <div class="review-info">
-                            <h4>Tracy Turco</h4>
-                            <span>Google Review</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-stars">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <p class="review-text">"Our marble floors were in desperate need of TLC. UMSR gave our floors new life. The staff is knowledgeable, professional, hardworking and goes above and beyond to ensure customer satisfaction."</p>
-                    <div class="review-author">
-                        <div class="review-avatar">BA</div>
-                        <div class="review-info">
-                            <h4>Belinda Arozarena</h4>
-                            <span>Facebook Review</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-stars">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <p class="review-text">"Pedro truly went above and beyond with my floor restoration. We have a home with significant marble and travertine that was poorly maintained. Now, it looks almost new!"</p>
-                    <div class="review-author">
-                        <div class="review-avatar">PT</div>
-                        <div class="review-info">
-                            <h4>Pavel Tsyrlin</h4>
-                            <span>Google Review</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-stars">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <p class="review-text">"Amazing work! Pedro covered the whole kitchen, cabinets and floors! My quartzite countertops hadn't been maintained in years and now they look like glass! Better than new!!"</p>
-                    <div class="review-author">
-                        <div class="review-avatar">BC</div>
-                        <div class="review-info">
-                            <h4>Bruna Corso</h4>
-                            <span>Google Review</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-stars">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <p class="review-text">"Excellent service! Very professional team. They restored our entire first floor marble and it looks absolutely stunning. Highly recommend their services."</p>
-                    <div class="review-author">
-                        <div class="review-avatar">MR</div>
-                        <div class="review-info">
-                            <h4>Michael Rodriguez</h4>
-                            <span>Google Review</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-stars">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <p class="review-text">"We had Pedro restore our travertine pool deck and it came out perfect. The team was punctual, clean, and very respectful of our property. Will definitely use again!"</p>
-                    <div class="review-author">
-                        <div class="review-avatar">SK</div>
-                        <div class="review-info">
-                            <h4>Sarah Kim</h4>
-                            <span>Google Review</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Reviews Grid (loaded from reviews.json) -->
+            <div class="reviews-grid" id="reviews-grid"></div>
         </div>
     </section>
 
@@ -1202,6 +1088,50 @@
                 closeMobileMenu();
             }
         });
+
+        // Load reviews from JSON
+        const starSVG = '<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+
+        function renderStars(count) {
+            return Array(count).fill(starSVG).join('');
+        }
+
+        function renderFeatured(review) {
+            return `
+                <div class="featured-review-content">
+                    <span class="featured-tag">Featured Review</span>
+                    <blockquote>"${review.text}"</blockquote>
+                    <div class="featured-author">
+                        <div class="featured-avatar">${review.initials}</div>
+                        <div class="featured-info">
+                            <h4>${review.name}</h4>
+                            <span>${starSVG} ${review.source}</span>
+                        </div>
+                    </div>
+                </div>`;
+        }
+
+        function renderCard(review) {
+            return `
+                <div class="review-card">
+                    <div class="review-stars">${renderStars(review.rating)}</div>
+                    <p class="review-text">"${review.text}"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">${review.initials}</div>
+                        <div class="review-info">
+                            <h4>${review.name}</h4>
+                            <span>${review.source}</span>
+                        </div>
+                    </div>
+                </div>`;
+        }
+
+        fetch('reviews.json')
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById('featured-review').innerHTML = renderFeatured(data.featured);
+                document.getElementById('reviews-grid').innerHTML = data.reviews.map(renderCard).join('');
+            });
     </script>
 </body>
 </html>
