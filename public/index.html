@@ -1899,29 +1899,36 @@
             });
         });
 
-        // Form submission handler (placeholder - connect to backend)
-        document.getElementById('lead-form').addEventListener('submit', function(e) {
+        // Form submission handler
+        document.getElementById('lead-form').addEventListener('submit', async function(e) {
             e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = 'Sending...';
 
-            // Get form data
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
 
-            // Log form data (replace with actual form submission)
-            console.log('Form submitted:', data);
-
-            // Show success message (placeholder)
-            alert('Thank you for your inquiry! We will contact you shortly at the phone number provided.');
-
-            // Reset form
-            this.reset();
-
-            // TODO: Connect to backend/email service
-            // Options:
-            // 1. FormSpree: action="https://formspree.io/f/YOUR_FORM_ID"
-            // 2. Netlify Forms: add data-netlify="true" to form
-            // 3. Custom backend endpoint
-            // 4. SMS service like Twilio for phone notifications
+            try {
+                const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (res.ok) {
+                    alert('Thank you for your inquiry! We will contact you shortly.');
+                    this.reset();
+                } else {
+                    const err = await res.json();
+                    alert(err.error || 'Something went wrong. Please call us directly.');
+                }
+            } catch {
+                alert('Something went wrong. Please call us directly.');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
         });
 
         // Mobile menu functionality

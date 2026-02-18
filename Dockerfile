@@ -1,6 +1,13 @@
-FROM nginx:alpine
-COPY *.html /usr/share/nginx/html/
-COPY *.json /usr/share/nginx/html/
-COPY images/ /usr/share/nginx/html/images/
-COPY nginx.conf /etc/nginx/nginx.conf
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package.json package-lock.json* ./
+RUN npm install --production
+
+COPY server.js ./
+COPY public/ ./public/
+
 EXPOSE 8080
+
+CMD ["node", "server.js"]

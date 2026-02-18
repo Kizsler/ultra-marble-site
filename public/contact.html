@@ -1073,20 +1073,35 @@
         });
 
         // Form submission handler
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
             e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = 'Sending...';
 
-            // Get form data
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
 
-            console.log('Form submitted:', data);
-
-            // Hide form and show success
-            this.style.display = 'none';
-            document.getElementById('form-success').classList.add('show');
-
-            // TODO: Connect to backend/email service
+            try {
+                const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (res.ok) {
+                    this.style.display = 'none';
+                    document.getElementById('form-success').classList.add('show');
+                } else {
+                    const err = await res.json();
+                    alert(err.error || 'Something went wrong. Please call us directly.');
+                }
+            } catch {
+                alert('Something went wrong. Please call us directly.');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
         });
     </script>
 </body>

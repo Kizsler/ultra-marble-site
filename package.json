@@ -1,0 +1,13 @@
+{
+  "name": "ultra-marble-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "resend": "^4.0.0",
+    "twilio": "^5.4.0"
+  }
+}
